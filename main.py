@@ -96,13 +96,13 @@ def generate_response(query):
     print("*"*20)
     # ic(context)
     # ic("*"*20)
-    prompt = """Important: Answer the question asked by the user from the context provided below. Do not answer anything outside the 
+    prompt = """Answer the question asked by the user from the context provided below. Do not answer anything outside the 
     provided context. If you do not find and answer in the provided context then say "I don't know".
-    Context: {context}\n\nQuestion: {query}\n\nAnswer:"""
+    Context: {context}\n\nQuestion: {query}\n\nAnswer:""".format(context=context, query=query)
     
 
 
-    response = llm.invoke(query).content
+    response = llm.invoke(prompt).content
     # print(response)
     # Print the response from the model
     # print(response['choices'][0]['message']['content'])
