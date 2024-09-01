@@ -5,12 +5,19 @@ import faiss
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from icecream import ic
 import streamlit as st
+from dotenv import load_dotenv
+import os
+
+# Load the .env file
+load_dotenv()
+
+api_key = os.getenv('OPENAI_API_KEY')
 
 # Set your OpenAI API key
-openai.api_key = "sk-Bw35FxVNlSQGZaadiy6C76S2bdMLchqrH6OYlQWAs0T3BlbkFJzRewGLcptsc3WdCn-b-GnflCSHW3XbVJvIIRMnaAsA"
+openai.api_key = api_key
 lc_embeddings = OpenAIEmbeddings(
     model="text-embedding-3-large",
-    api_key="sk-Bw35FxVNlSQGZaadiy6C76S2bdMLchqrH6OYlQWAs0T3BlbkFJzRewGLcptsc3WdCn-b-GnflCSHW3XbVJvIIRMnaAsA",
+    api_key=api_key,
     # With the `text-embedding-3` class
     # of models, you can specify the size
     # of the embeddings you want returned.
@@ -23,7 +30,7 @@ llm = ChatOpenAI(
     max_tokens=None,
     timeout=None,
     max_retries=2,
-    api_key="sk-Bw35FxVNlSQGZaadiy6C76S2bdMLchqrH6OYlQWAs0T3BlbkFJzRewGLcptsc3WdCn-b-GnflCSHW3XbVJvIIRMnaAsA",
+    api_key=api_key
     # base_url="...",
     # organization="...",
     # other params...
