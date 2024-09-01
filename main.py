@@ -3,7 +3,7 @@ from pypdf import PdfReader
 import numpy as np
 import faiss
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from icecream import ic
+# from icecream import ic
 import streamlit as st
 from dotenv import load_dotenv
 import os
@@ -94,8 +94,8 @@ def generate_response(query):
     relevant_docs = retrieve_documents(query)
     context = "\n".join(relevant_docs)
     print("*"*20)
-    ic(context)
-    ic("*"*20)
+    # ic(context)
+    # ic("*"*20)
     prompt = """Important: Answer the question asked by the user from the context provided below. Do not answer anything outside the 
     provided context. If you do not find and answer in the provided context then say "I don't know".
     Context: {context}\n\nQuestion: {query}\n\nAnswer:"""

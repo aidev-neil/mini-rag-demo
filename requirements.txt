@@ -7,6 +7,5 @@ langchain-community
 langchain-core
 langchain-openai
 streamlit
-iceream
 faiss-cpu
 openai
